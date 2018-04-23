@@ -45,7 +45,7 @@ export default {
           label: '北京烤鸭'
         }],
         value: '',
-        input: 'wangqiang'
+        input: 'wang'
       }
   }
 }
