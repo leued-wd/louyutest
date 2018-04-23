@@ -5,6 +5,11 @@
 ## Build Setup
 
 ``` bash
+
+# checkout
+
+git clone -b [yourname] git@github.com:leued/louyutest.git
+	
 # install dependencies
 npm install
 
