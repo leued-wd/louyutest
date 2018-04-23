@@ -4,7 +4,6 @@ const HelloWorld = () => import ('@/components/HelloWorld');
 const test = () => import ('@/pages/test/index');
 Vue.use(Router);
 
-
 export default new Router({
   routes: [
     {
