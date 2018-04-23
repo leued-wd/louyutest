@@ -1,5 +1,11 @@
 import {baseData  as  $c  } from './le/basedata.js'
-window.$le = {
-  $c 
+
+const le = {}
+
+le.install =function(Vue) {
+  Vue.prototype.$c = $c;
+  Vue.$c = $c;
 }
+
+export default le;
 
