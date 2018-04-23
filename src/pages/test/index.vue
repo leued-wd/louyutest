@@ -9,7 +9,7 @@
 		  <el-button type="danger" plain>危险按钮</el-button>
 		</el-row>
 
-		<el-select v-model="value" placeholder="请选择">
+		<el-select v-model="value" filterable placeholder="请选择">
 		    <el-option
 		      v-for="item in options"
 		      :key="item.value"
