@@ -9,7 +9,7 @@
 		  <el-button type="danger" plain>危险按钮</el-button>
 		</el-row>
 
-		<el-select v-model="value" placeholder="请选择">
+		<el-select v-model="value" filterable placeholder="请选择">
 		    <el-option
 		      v-for="item in options"
 		      :key="item.value"
@@ -43,6 +43,9 @@ export default {
         }, {
           value: '选项5',
           label: '北京烤鸭'
+        },{
+          value: '选项6',
+          label: '重庆小面'
         }],
         value: '',
         input: 'wang'
