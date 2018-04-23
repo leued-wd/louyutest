@@ -43,6 +43,9 @@ export default {
         }, {
           value: '选项5',
           label: '北京烤鸭'
+        },{
+          value: '选项6',
+          label: '重庆小面'
         }],
         value: '',
         input: 'wangqiang'
