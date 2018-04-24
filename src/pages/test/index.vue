@@ -34,42 +34,54 @@ export default {
         input: 'wangqiang'
       }
   },
-  beforeRouteEnter (to, from, next) {
-
-    Vue.axios.get('http://ued.beta.scloud.letv.cn:8181/building/community/getcrmorderdetail').then(function (response){
-      next((vm)=>{
-        vm.options = [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        },{
-          value: '选项6',
-          label: '重庆小面'
-        }]
-
-        
-      })
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+  created () {
+    
+    this.send()
   },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route'(){
+      this.send()
+    }
+  },
+  methods : {
+    send(){
+        
+        const self = this;
+        Vue.axios.get(Vue.$c.getApi('building/community/getcrmorderdetail')).then(function (response){
+          self.options = [{
+              value: '选项1',
+              label: '黄金糕'
+            }, {
+              value: '选项2',
+              label: '双皮奶'
+            }, {
+              value: '选项3',
+              label: '蚵仔煎'
+            }, {
+              value: '选项4',
+              label: '龙须面'
+            }, {
+              value: '选项5',
+              label: '北京烤鸭'
+            },{
+              value: '选项6',
+              label: '重庆小面'
+            }]
+
+            self.$closeLoading()
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  },
+  
   updated(){
     
   },
   mounted(){
+   
     
   }
 }
