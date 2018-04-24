@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 export default {
   name: 'test',
   data () {
@@ -50,6 +51,10 @@ export default {
         value: '',
         input: 'wang'
       }
+  },
+  mounted(){
+    console.log(Vue.$c)
+    console.log(this.$c)
   }
 }
 </script>
