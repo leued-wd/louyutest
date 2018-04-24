@@ -29,7 +29,16 @@ export default {
   name: 'test',
   data () {
     return {
-        options: [{
+        options: [],
+        value: '',
+        input: 'wangqiang'
+      }
+  },
+  beforeRouteEnter (to, from, next) {
+
+    Vue.axios.get('http://ued.beta.scloud.letv.cn:8181/building/community/getcrmorderdetail').then(function (response){
+      next((vm)=>{
+        vm.options = [{
           value: '选项1',
           label: '黄金糕'
         }, {
@@ -47,14 +56,21 @@ export default {
         },{
           value: '选项6',
           label: '重庆小面'
-        }],
-        value: '',
-        input: 'wangqiang'
-      }
+        }]
+
+        
+      })
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  },
+  updated(){
+    
   },
   mounted(){
-    console.log(Vue.$c)
-    console.log(this.$c)
+    
   }
 }
 </script>
