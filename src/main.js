@@ -12,6 +12,16 @@ import $le from './utils/le.js'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use($le);
+
+router.beforeEach((to, from, next) => {
+    Vue.prototype.$showLoading()
+    next()
+})
+
+router.afterEach((to, from) => {
+   Vue.prototype.$closeLoading()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -55,6 +55,17 @@ export default {
   mounted(){
     console.log(Vue.$c)
     console.log(this.$c)
+  },
+  beforeRouteEnter(to,from,next){
+    var xml = new XMLHttpRequest();
+    xml.open('get',"http://ued.beta.scloud.letv.cn:8181/fangzhou/3/initData");
+    xml.send(null);
+    xml.onreadystatechange = function(data){
+      if(xml.readyState==4 && xml.status==200){
+        console.log(data)
+        next()
+      }
+    }
   }
 }
 </script>
