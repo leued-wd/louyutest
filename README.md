@@ -13,6 +13,10 @@ git clone -b [yourname] git@github.com:leued/louyutest.git
 # install dependencies
 npm install
 
+# install g npm i element-theme -g
+
+npm i element-theme -g
+
 # serve with hot reload at localhost:8080
 npm run dev
 
