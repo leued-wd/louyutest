@@ -29,32 +29,60 @@ export default {
   name: 'test',
   data () {
     return {
-        options: [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        },{
-          value: '选项6',
-          label: '重庆小面'
-        }],
+        options: [],
         value: '',
         input: 'wang'
       }
   },
+  created () {
+    
+    this.send()
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route'(){
+      this.send()
+    }
+  },
+  methods : {
+    send(){
+        
+        const self = this;
+        Vue.axios.get(Vue.$c.getApi('building/community/getcrmorderdetail')).then(function (response){
+          self.options = [{
+              value: '选项1',
+              label: '黄金糕'
+            }, {
+              value: '选项2',
+              label: '双皮奶'
+            }, {
+              value: '选项3',
+              label: '蚵仔煎'
+            }, {
+              value: '选项4',
+              label: '龙须面'
+            }, {
+              value: '选项5',
+              label: '北京烤鸭'
+            },{
+              value: '选项6',
+              label: '重庆小面'
+            }]
+
+            self.$closeLoading()
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  },
+  
+  updated(){
+    
+  },
   mounted(){
-    console.log(Vue.$c)
-    console.log(this.$c)
+   
+    
   }
 }
 </script>
