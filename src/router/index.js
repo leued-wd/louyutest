@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+const main = () => import ('@/tpl/main');
 const HelloWorld = () => import ('@/components/HelloWorld');
 const test = () => import ('@/pages/test/index');
 const table = () => import ('@/pages/test/table');
-const main = () => import ('@/tpl/main');
+const list = () => import ('@/pages/test/list');
 Vue.use(Router);
 
 export default new Router({
@@ -27,6 +28,11 @@ export default new Router({
           path: 'table',
           name: 'table',
           component: table
+        },
+        {
+          path: 'list',
+          name: 'list',
+          component: list
         }
       ]
     }
