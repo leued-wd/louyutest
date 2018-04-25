@@ -3,6 +3,7 @@ import Router from 'vue-router'
 const HelloWorld = () => import ('@/components/HelloWorld');
 const test = () => import ('@/pages/test/index');
 const table = () => import ('@/pages/test/table');
+const main = () => import ('@/tpl/main');
 Vue.use(Router);
 
 export default new Router({
@@ -13,14 +14,22 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/test',
-      name: 'test',
-      component: test
-    },
-    {
-      path: '/table',
-      name: 'table',
-      component: table
+      path: '/main',
+      name: 'main',
+      component: main,
+      children : [
+        {
+          path: 'test',
+          name: 'test',
+          component: test
+        },
+        {
+          path: 'table',
+          name: 'table',
+          component: table
+        }
+      ]
     }
+    
   ]
 })
