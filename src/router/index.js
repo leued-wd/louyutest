@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const main = () => import ('@/tpl/main');
 const HelloWorld = () => import ('@/components/HelloWorld');
 const test = () => import ('@/pages/test/index');
 const table = () => import ('@/pages/test/table');
 const list = () => import ('@/pages/test/list');
+const main = () => import ('@/components/layout/main');
 Vue.use(Router);
 
 export default new Router({

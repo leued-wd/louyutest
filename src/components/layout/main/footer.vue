@@ -1,6 +1,6 @@
 <template>
   <div>
-    header
+    页面footer
   </div>
 </template>
 
