@@ -14,7 +14,7 @@ Vue.use(ElementUI);
 Vue.use($le);
 
 router.beforeEach((to, from, next) => {
-    // Vue.prototype.$showLoading()
+    Vue.prototype.$showLoading()
     next()
 })
 
