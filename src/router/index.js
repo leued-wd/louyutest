@@ -1,35 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routers from './routerConfig'
-const HelloWorld = () => import ('@/components/HelloWorld');
-const test = () => import ('@/pages/test/index');
-const table = () => import ('@/pages/test/table');
-const list = () => import ('@/pages/test/list');
-const main = () => import ('@/components/layout/main');
+
 Vue.use(Router);
-
-const routArr =[];
-
-routers.forEach(function(value, key) {
-  routArr.push({
-    path: key,
-    name: key,
-    component: value
-  })
-});
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: () => import ('@/components/HelloWorld')
     },
     {
       path: '/main',
       name: 'main',
-      component: main,
-      children : routArr
+      component:  () => import ('@/components/layout/main'),
+      children : [
+        {
+          path: 'test',
+          name: 'test',
+          component: () => import ('@/pages/test/index')
+        },
+        {
+          path: 'table',
+          name: 'table',
+          component: () => import ('@/pages/test/table')
+        },
+        {
+          path: 'list',
+          name: 'list',
+          component: () => import ('@/pages/test/list')
+        }
+      ]
     }
     
   ]

@@ -14,9 +14,6 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    setTimeout(() => {
-      closeLoading();
-    }, 1000);
 
     // 根据返回的errno值来做不同的处理，需要和后端统一定义
     if(response.status == 200 && response.data.errno){
@@ -37,6 +34,7 @@ axios.interceptors.response.use(function (response) {
           break;
       }
     }
+    closeLoading();
     return response;
   }, function (error) {
     if (error && error.response) {
